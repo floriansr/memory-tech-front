@@ -9,6 +9,7 @@ import {
   setRevenuesAll,
   setAvgRevenuesAll,
   setNumberCustomersAll,
+  setCountries,
 } from '../../redux';
 
 const Home = () => {
@@ -17,10 +18,10 @@ const Home = () => {
   useEffect(() => {
     const allCountries = async () => {
       const res = await APIManager.allCountries();
-      console.log('Home -> res', res);
       dispatch(setRevenuesAll(res.revenues));
       dispatch(setAvgRevenuesAll(res.avg_revenues));
       dispatch(setNumberCustomersAll(res.customers));
+      dispatch(setCountries(res.countries));
     };
 
     allCountries();
