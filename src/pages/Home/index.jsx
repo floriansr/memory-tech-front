@@ -15,24 +15,15 @@ const Home = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const allRevenues = async () => {
-      const res = await APIManager.allRevenues();
+    const allCountries = async () => {
+      const res = await APIManager.allCountries();
       console.log('Home -> res', res);
       dispatch(setRevenuesAll(res.revenues));
-    };
-    const avgRevenues = async () => {
-      const res = await APIManager.avgRevenuesAll();
-      console.log('Home -> res', res);
-      dispatch(setAvgRevenuesAll(res.avgRevenues));
-    };
-    const customers = async () => {
-      const res = await APIManager.numberCustomers();
-      console.log('Home -> res', res);
+      dispatch(setAvgRevenuesAll(res.avg_revenues));
       dispatch(setNumberCustomersAll(res.customers));
     };
-    allRevenues();
-    avgRevenues();
-    customers();
+
+    allCountries();
   }, [dispatch]);
 
   return (
