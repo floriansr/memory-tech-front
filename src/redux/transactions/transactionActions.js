@@ -3,6 +3,7 @@ import {
   SET_ALL_AVG_REVENUES,
   SET_NUMBER_CUSTOMERS,
   SET_COUNTRIES,
+  SET_DATETIME,
 } from 'redux/transactions/transactionType';
 
 export const setRevenuesAll = (x) => {
@@ -29,6 +30,13 @@ export const setNumberCustomersAll = (x) => {
 export const setCountries = (x) => {
   return {
     type: SET_COUNTRIES,
+    details: x,
+  };
+};
+
+export const setDatetime = (x) => {
+  return {
+    type: SET_DATETIME,
     details: x,
   };
 };
