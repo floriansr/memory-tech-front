@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import APIManager from 'services/APIManager';
 import CountriesDropDown from 'components/Dropdown';
+import Summary from 'components/Summary';
 import { Container, Div, Row, Col, Text } from 'atomize';
 
 import { setTransactions } from '../../redux';
@@ -30,6 +31,9 @@ const Home = () => {
         <Div>
           <Col>
             <Text tag="h3">SUMMARY</Text>
+            <Row>
+              <Summary />
+            </Row>
           </Col>
         </Div>
         <Div>
