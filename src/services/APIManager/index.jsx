@@ -28,13 +28,8 @@ export default class APIManager {
     return res.data;
   }
 
-  static async avgRevenuesAll() {
-    const res = await API.get('api/v1/avg_revenues/all');
-    return res.data;
-  }
-
-  static async numberCustomers() {
-    const res = await API.get('api/v1/customers');
+  static async oneCountry(country) {
+    const res = await API.post('api/v1/country', { country });
     return res.data;
   }
 }
