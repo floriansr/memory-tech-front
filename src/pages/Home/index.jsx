@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-
 import APIManager from 'services/APIManager';
+import CountriesDropDown from 'components/Dropdown';
 import { Container, Div, Row, Col, Text } from 'atomize';
 
 import { setTransactions } from '../../redux';
@@ -22,8 +22,9 @@ const Home = () => {
     <>
       <Container>
         <Div>
-          <Row>
+          <Row d="flex" w="50%" justify="space-around" align="center">
             <Text tag="h3">COUNTRY</Text>
+            <CountriesDropDown />
           </Row>
         </Div>
         <Div>
