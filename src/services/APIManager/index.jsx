@@ -23,7 +23,7 @@ API.interceptors.request.use(
 );
 
 export default class APIManager {
-  static async allRevenues() {
+  static async allCountries() {
     const res = await API.get('api/v1/revenues/all');
     return res.data;
   }

@@ -26,7 +26,7 @@ const Summary = () => {
         </Card>
       </Col>
       <Col span={8}>
-        <Card title="Avg Revenue">
+        <Card title="Avg Revenue By Order">
           {avgRevenues === 0 ? (
             <Loader type="ThreeDots" color="#00BFFF" height={50} width={40} />
           ) : (
@@ -48,7 +48,6 @@ const Summary = () => {
               value={customers}
               displayType="text"
               thousandSeparator
-              prefix="$"
             />
           )}
         </Card>
