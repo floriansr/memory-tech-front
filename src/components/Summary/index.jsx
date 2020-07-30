@@ -5,7 +5,9 @@ import Loader from 'react-loader-spinner';
 import NumberFormat from 'react-number-format';
 
 const Summary = () => {
-  const { revenues } = useSelector((state) => state.transaction);
+  const { revenues, avgRevenues, customers } = useSelector(
+    (state) => state.transaction
+  );
 
   return (
     <>
@@ -24,10 +26,32 @@ const Summary = () => {
         </Card>
       </Col>
       <Col span={8}>
-        <Card title="Avg Revenue">Number</Card>
+        <Card title="Avg Revenue">
+          {avgRevenues === 0 ? (
+            <Loader type="ThreeDots" color="#00BFFF" height={50} width={40} />
+          ) : (
+            <NumberFormat
+              value={avgRevenues}
+              displayType="text"
+              thousandSeparator
+              prefix="$"
+            />
+          )}
+        </Card>
       </Col>
       <Col span={8}>
-        <Card title="Customers">Number</Card>
+        <Card title="Customers">
+          {customers === 0 ? (
+            <Loader type="ThreeDots" color="#00BFFF" height={50} width={40} />
+          ) : (
+            <NumberFormat
+              value={customers}
+              displayType="text"
+              thousandSeparator
+              prefix="$"
+            />
+          )}
+        </Card>
       </Col>
     </>
   );

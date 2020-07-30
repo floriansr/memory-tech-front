@@ -5,7 +5,11 @@ import CountriesDropDown from 'components/Dropdown';
 import Summary from 'components/Summary';
 import { Container, Div, Row, Col, Text } from 'atomize';
 
-import { setTransactions } from '../../redux';
+import {
+  setRevenuesAll,
+  setAvgRevenuesAll,
+  setNumberCustomersAll,
+} from '../../redux';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -14,9 +18,21 @@ const Home = () => {
     const allRevenues = async () => {
       const res = await APIManager.allRevenues();
       console.log('Home -> res', res);
-      dispatch(setTransactions(res.revenues));
+      dispatch(setRevenuesAll(res.revenues));
+    };
+    const avgRevenues = async () => {
+      const res = await APIManager.avgRevenuesAll();
+      console.log('Home -> res', res);
+      dispatch(setAvgRevenuesAll(res.avgRevenues));
+    };
+    const customers = async () => {
+      const res = await APIManager.numberCustomers();
+      console.log('Home -> res', res);
+      dispatch(setNumberCustomersAll(res.customers));
     };
     allRevenues();
+    avgRevenues();
+    customers();
   }, [dispatch]);
 
   return (
