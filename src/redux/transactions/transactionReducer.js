@@ -3,6 +3,7 @@ import {
   SET_ALL_AVG_REVENUES,
   SET_NUMBER_CUSTOMERS,
   SET_COUNTRIES,
+  SET_DATETIME,
 } from 'redux/transactions/transactionType';
 
 const initialState = {
@@ -10,6 +11,7 @@ const initialState = {
   avgRevenues: 0,
   customers: 0,
   countries: [],
+  datetime: [],
 };
 
 const transactionReducer = (state = initialState, action) => {
@@ -33,6 +35,11 @@ const transactionReducer = (state = initialState, action) => {
       return {
         ...state,
         countries: action.details,
+      };
+    case SET_DATETIME:
+      return {
+        ...state,
+        datetime: action.details,
       };
     default:
       return state;

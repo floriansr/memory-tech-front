@@ -2,7 +2,7 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 
 const API = axios.create({
-  baseURL: 'http://localhost:8080',
+  baseURL: 'https://intothememory.herokuapp.com/',
 });
 
 API.interceptors.request.use(
@@ -30,6 +30,7 @@ export default class APIManager {
 
   static async oneCountry(country) {
     const res = await API.post('api/v1/country', { country });
+    console.log('APIManager -> oneCountry -> res', res.data);
     return res.data;
   }
 }

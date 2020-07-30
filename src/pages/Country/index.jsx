@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 import APIManager from 'services/APIManager';
 import CountriesDropDown from 'components/Dropdown';
 import Summary from 'components/Summary';
+import Visualizer from 'components/VisualizerTableCell';
+
 import { Container, Div, Row, Col, Text } from 'atomize';
 
 import {
@@ -11,6 +13,7 @@ import {
   setAvgRevenuesAll,
   setNumberCustomersAll,
   setCountries,
+  setDatetime,
 } from '../../redux';
 
 const Country = () => {
@@ -24,6 +27,7 @@ const Country = () => {
       dispatch(setAvgRevenuesAll(res.avg_revenues));
       dispatch(setNumberCustomersAll(res.customers));
       dispatch(setCountries(res.countries));
+      dispatch(setDatetime(res.datetime));
     };
 
     oneCountry();
@@ -49,6 +53,7 @@ const Country = () => {
         <Div>
           <Col>
             <Text tag="h3">REVENUE PER MONTH</Text>
+            <Visualizer />
           </Col>
         </Div>
       </Container>
