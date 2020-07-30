@@ -1,1 +1,5 @@
-export { setTransactions } from 'redux/transactions/transactionActions';
+export {
+  setRevenuesAll,
+  setAvgRevenuesAll,
+  setNumberCustomersAll,
+} from 'redux/transactions/transactionActions';

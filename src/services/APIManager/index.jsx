@@ -27,4 +27,14 @@ export default class APIManager {
     const res = await API.get('api/v1/revenues/all');
     return res.data;
   }
+
+  static async avgRevenuesAll() {
+    const res = await API.get('api/v1/avg_revenues/all');
+    return res.data;
+  }
+
+  static async numberCustomers() {
+    const res = await API.get('api/v1/customers');
+    return res.data;
+  }
 }
