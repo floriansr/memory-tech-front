@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import APIManager from 'services/APIManager';
 import CountriesDropDown from 'components/Dropdown';
 import Summary from 'components/Summary';
@@ -12,20 +13,21 @@ import {
   setCountries,
 } from '../../redux';
 
-const Home = () => {
+const Country = () => {
   const dispatch = useDispatch();
+  const { slug } = useParams();
 
   useEffect(() => {
-    const allCountries = async () => {
-      const res = await APIManager.allCountries();
+    const oneCountry = async () => {
+      const res = await APIManager.oneCountry(slug);
       dispatch(setRevenuesAll(res.revenues));
       dispatch(setAvgRevenuesAll(res.avg_revenues));
       dispatch(setNumberCustomersAll(res.customers));
       dispatch(setCountries(res.countries));
     };
 
-    allCountries();
-  }, [dispatch]);
+    oneCountry();
+  }, [dispatch, slug]);
 
   return (
     <>
@@ -54,4 +56,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Country;

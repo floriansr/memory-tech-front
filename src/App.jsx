@@ -5,6 +5,7 @@ import { Client as Styletron } from 'styletron-engine-atomic';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Home from 'pages/Home';
+import Country from 'pages/Country';
 
 const debug =
   process.env.NODE_ENV === 'production' ? void 0 : new DebugEngine();
@@ -17,6 +18,7 @@ const App = () => {
       <StyletronProvider value={engine} debug={debug} debugAfterHydration>
         <Router>
           <Switch>
+            <Route exact path="/country/:slug" component={Country} />
             <Home exact path="/" component={Home} />
             <Route path="*" status={404} />
           </Switch>
