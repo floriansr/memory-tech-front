@@ -22,8 +22,6 @@ const BasicDropdown = () => {
     </Div>
   );
 
-  console.log('BasicDropdown -> countries.length', countries.length);
-
   return (
     <>
       {countries.length === 0 ? (
